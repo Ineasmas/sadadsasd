@@ -1,0 +1,44 @@
+package com.example.pr26;
+
+
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SecondScreen extends AppCompatActivity {
+    Button btMap;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.your_breakfast);
+        btMap = (Button) findViewById(R.id.btMap);
+        btMap.setOnClickListener(this::OnClick);
+
+    }
+
+    public void OnClick(View v) {
+
+
+        switch (v.getId()) {
+
+            case R.id.btMap:
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("geo:54.98962711859692, 82.90592423793079"));
+                startActivity(intent);
+                break;
+
+        }
+    }
+}
